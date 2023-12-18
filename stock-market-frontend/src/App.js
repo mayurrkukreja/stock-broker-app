@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
   const [stockData, setStockData] = useState([]);
@@ -21,30 +22,32 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>Stock Data</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Ticker</th>
-            <th>Volume</th>
-            <th>Opening Price</th>
-            <th>Closing Price</th>
-            {/* Add headers for other properties */}
-          </tr>
-        </thead>
-        <tbody>
-          {stockData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.t}</td>
-              <td>{data.v}</td>
-              <td>{data.o}</td>
-              <td>{data.c}</td>
-              {/* Render other properties as needed */}
+      <div className="table-container">
+        <table className="stock-table">
+          <thead>
+            <tr>
+              <th>Ticker</th>
+              <th>Volume</th>
+              <th>Opening Price</th>
+              <th>Closing Price</th>
+              {/* Add headers for other properties */}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {stockData.map((data, index) => (
+              <tr key={index}>
+                <td>{data.active}</td>
+                <td>{data.v}</td>
+                <td>{data.o}</td>
+                <td>{data.c}</td>
+                {/* Render other properties as needed */}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

@@ -1,37 +1,7 @@
-// // server.js
-// const express = require('express');
-// const http = require('http');
-// const { fetchAndBroadcastStocksData, getStocksData } = require('./controllers/stockController');
-// const { initializeWebSocketServer } = require('./controllers/websocketController');
-
-// const app = express();
-// const server = http.createServer(app);
-
-// // Middleware and other configurations as needed
-
-// initializeWebSocketServer(server); // Initialize WebSocket server
-
-// // Endpoint to fetch and broadcast stocks data
-// app.get('/api/stocks', (req, res) => {
-//   const apiKey = '0_MMGnoEeKmbi5xXmB8atwwJxw0Ba9ki'; // Replace with your actual Polygon API key
-//   fetchAndBroadcastStocksData(apiKey); // Fetch stocks data and broadcast via WebSocket
-//   res.send('Stocks data fetched and broadcasted');
-// });
-
-// // Endpoint to get stocks data
-// app.get('/api/stocksData', getStocksData);
-
-// const PORT = process.env.PORT || 3001;
-
-// server.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
-
-
-
 const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
+
 
 const app = express();
 // cors middleware
@@ -40,8 +10,6 @@ const port = 3001;
 
 const apiKey = '0_MMGnoEeKmbi5xXmB8atwwJxw0Ba9ki'; // Replace with your actual Polygon API key
 const polygonAPIURL = 'https://api.polygon.io/v2';
-
-//   const response = (`https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/gainers?apiKey=${apiKey}`);
 
 
 // Route to fetch top 20 stocks with opening prices
